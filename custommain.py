@@ -16,9 +16,7 @@ from tensorflow.keras.layers import (
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 
-# =========================
 # SETTINGS
-# =========================
 
 IMG_SIZE = 224
 BATCH_SIZE = 32
@@ -26,9 +24,7 @@ EPOCHS = 10
 
 dataset_path = "dataset"
 
-# =========================
 # DATA PREPROCESSING
-# =========================
 
 datagen = ImageDataGenerator(
     rescale=1./255,
@@ -38,9 +34,7 @@ datagen = ImageDataGenerator(
     horizontal_flip=True
 )
 
-# =========================
 # TRAINING DATA
-# =========================
 
 train_data = datagen.flow_from_directory(
     dataset_path,
@@ -50,9 +44,7 @@ train_data = datagen.flow_from_directory(
     subset='training'
 )
 
-# =========================
 # VALIDATION DATA
-# =========================
 
 val_data = datagen.flow_from_directory(
     dataset_path,
@@ -62,9 +54,7 @@ val_data = datagen.flow_from_directory(
     subset='validation'
 )
 
-# =========================
 # SAVE CLASS NAMES
-# =========================
 
 class_names = list(train_data.class_indices.keys())
 
@@ -74,9 +64,7 @@ with open("models/class_names.json", "w") as f:
 print("\nClasses:")
 print(class_names)
 
-# =========================
 # COMPUTE CLASS WEIGHTS
-# =========================
 
 weights = compute_class_weight(
     class_weight='balanced',
@@ -92,9 +80,7 @@ class_weights = tf.constant(
 print("\nClass Weights:")
 print(weights)
 
-# =========================
 # CUSTOM LOSS FUNCTION
-# =========================
 
 def weighted_cce(class_weights):
 
@@ -114,9 +100,7 @@ def weighted_cce(class_weights):
 
     return loss
 
-# =========================
 # LOAD VGG16
-# =========================
 
 base_model = VGG16(
     weights='imagenet',
@@ -129,9 +113,7 @@ base_model = VGG16(
 for layer in base_model.layers:
     layer.trainable = False
 
-# =========================
 # BUILD MODEL
-# =========================
 
 model = Sequential([
     base_model,
@@ -151,9 +133,7 @@ model = Sequential([
     )
 ])
 
-# =========================
 # COMPILE MODEL
-# =========================
 
 model.compile(
     optimizer=Adam(
@@ -163,15 +143,11 @@ model.compile(
     metrics=['accuracy']
 )
 
-# =========================
 # MODEL SUMMARY
-# =========================
 
 model.summary()
 
-# =========================
 # EARLY STOPPING
-# =========================
 
 early_stop = EarlyStopping(
     monitor='val_loss',
@@ -179,9 +155,7 @@ early_stop = EarlyStopping(
     restore_best_weights=True
 )
 
-# =========================
 # TRAIN MODEL
-# =========================
 
 history = model.fit(
     train_data,
@@ -190,9 +164,7 @@ history = model.fit(
     callbacks=[early_stop]
 )
 
-# =========================
 # SAVE MODEL
-# =========================
 
 model.save(
     "models/fruit_model.h5"
@@ -200,9 +172,7 @@ model.save(
 
 print("\nModel saved successfully!")
 
-# =========================
 # ACCURACY GRAPH
-# =========================
 
 plt.figure(figsize=(8,5))
 
@@ -224,9 +194,7 @@ plt.legend()
 
 plt.show()
 
-# =========================
 # LOSS GRAPH
-# =========================
 
 plt.figure(figsize=(8,5))
 
