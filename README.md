@@ -10,7 +10,8 @@ The project uses TensorFlow/Keras in Google Colab and leverages pretrained Image
 
 ## Google colab link 
 
-https://colab.research.google.com/drive/1HSJ3aEY23YnWvVpz73i0_lQJ6ZGIT92W?authuser=4#scrollTo=A65iLI9XCFf
+[Here]
+(https://colab.research.google.com/drive/1HSJ3aEY23YnWvVpz73i0_lQJ6ZGIT92W?usp=sharing)
 
 ---
 
