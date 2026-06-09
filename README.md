@@ -25,8 +25,11 @@ The project uses TensorFlow/Keras in Google Colab and leverages pretrained Image
 Dataset Source:
 
 Fruit Recognition Dataset from Kaggle
+
 Dataset ID:
+
 chrisfilo/fruit-recognition
+
 Dataset contains images organized into folders where each folder represents a fruit class.
 
 ---
