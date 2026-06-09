@@ -6,8 +6,7 @@ This project implements a Fruit Recognition System using Transfer Learning with 
 
 The project uses TensorFlow/Keras in Google Colab and leverages pretrained ImageNet weights for efficient training and improved accuracy.
 
-Google colab link : https://colab.research.google.com/drive/1HSJ3aEY23YnWvVpz73i0_lQJ6ZGIT92W?authuser=4#scrollTo=A65iLI9XCFf_
-
+Google colab link : https://colab.research.google.com/drive/1HSJ3aEY23YnWvVpz73i0_lQJ6ZGIT92W?authuser=4#scrollTo=A65iLI9XCFf
 ---
 
 ## Features
