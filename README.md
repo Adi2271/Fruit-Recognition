@@ -65,15 +65,25 @@ Dataset Download
 ## Model Architecture
 
 Input Image (224×224×3)
+
 ↓
+
 VGG16 Base Model
+
 ↓
+
 GlobalAveragePooling2D
+
 ↓
+
 Dense(256, ReLU)
+
 ↓
+
 Dropout(0.5)
+
 ↓
+
 Dense(Output Classes, Softmax)
 
 ---
@@ -116,7 +126,10 @@ Performance graphs are generated for monitoring learning behavior and overfittin
 ## Authors
 
 Aditya Patil
+
 Akash Patra
+
 Balkirshna Goswami
+
 
 IIIT Raichur
